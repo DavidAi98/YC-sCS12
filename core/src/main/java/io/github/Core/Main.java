@@ -1,4 +1,5 @@
-package io.github.some_example_name;
+package io.github.Core;
+
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.graphics.Texture;
@@ -9,6 +10,8 @@ import com.badlogic.gdx.utils.ScreenUtils;
 public class Main extends ApplicationAdapter {
     private SpriteBatch batch;
     private Texture image;
+    private int stage;
+
 
     @Override
     public void create() {
