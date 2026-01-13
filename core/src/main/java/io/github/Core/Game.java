@@ -7,11 +7,28 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.ScreenUtils;
 
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
-public class Main extends ApplicationAdapter {
+public class Game extends ApplicationAdapter {
     private SpriteBatch batch;
     private Texture image;
     private int stage;
+    private boolean isAttacking = false;
 
+
+
+    private long attackEndTime = 0;
+
+    public void startAttack() {
+        isAttacking = true;
+        // 记录下 200 毫秒后的系统时间
+        attackEndTime = System.currentTimeMillis() + 200;
+    }
+
+    public void update() {
+        // 检查当前时间是否超过了结束时间
+        if (isAttacking && System.currentTimeMillis() > attackEndTime) {
+            isAttacking = false;
+        }
+    }
 
     @Override
     public void create() {
